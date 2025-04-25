@@ -4,10 +4,6 @@ networks:
 
 volumes:
   postgres-data:
-  zookeeper-data:
-    driver: local
-  kafka-data:
-    driver: local
 
 x-database-environment: &common-postgres-env
   POSTGRES_DB: ${POSTGRES_DB:-testdb}
