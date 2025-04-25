@@ -1,0 +1,16 @@
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+
+plugins.withId('com.google.cloud.tools.jib'){
+    jib {
+        from {
+            image = 'eclipse-temurin:21-jre-alpine'
+        }
+        to {
+            image = "${rootProject.name}-$name:latest"
+        }
+        container {
+            creationTime = ZonedDateTime.now().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+        }
+    }
+}

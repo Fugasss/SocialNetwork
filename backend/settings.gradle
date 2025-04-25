@@ -1,0 +1,9 @@
+rootProject.name = 'socialnetwork'
+
+include 'services:gateway-service',
+        'services:discovery-service',
+        'services:user-service',
+        'services:auth-service',
+        'services:post-service'
+
+include 'shared:common', 'shared:web'
