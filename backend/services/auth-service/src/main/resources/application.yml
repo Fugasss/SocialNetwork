@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: auth-service
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${SPRING_EUREKA_DEFAULT_ZONE:localhost}:8761/eureka/
+
+security:
+  secret-key: ${SIGNING_SECRET_KEY:9b7ac94fe2df06955e4c54260ded5b0b102734a57c97288cb51586da949e5411ad722e49fac2e23ba6cd75f170d9aa1d37f6463c17483b43ec5a7e18022f5731283488019c6d55e6c2ce27a5b31e95d63871c9a9e96e901f23b70e03027f3c302678b7ff46f668b589a0912d17c85190f74c9dca6d18f538d66c982432ca8180c85fd7bc468506b93783422ef40a88b6beb2b4a5555c33b42ba49bcf366e87444a6ae7297b5e16d3c9f136bad77ef8066e7ba36bbf690be0ad9641e27fda97abf9b7b134febbc1c599586a3b852ca2b09c76efb8987bf76bec9f89bcf73f5988699a8c15759d123423e0494f287aae2b5ff84dd306aef1a9a2edf91eb5a9ad8d}
+  jwt:
+    access-token-expiration-seconds: 300 # 5 minutes
+    refresh-token-expiration-seconds: 1800 # 30 minutes
+
+debug: true
+
+logging:
+  level:
+    web: debug
+    sql: debug
