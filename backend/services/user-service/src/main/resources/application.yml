@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: user-service
+
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:postgres}?currentSchema=user_schema
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        default_schema: user_schema
+        connection:
+          driver_class: org.postgresql.Driver
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      schema-locations: classpath:init.sql
+      mode: always
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${SPRING_EUREKA_DEFAULT_ZONE:localhost}:8761/eureka/
+
+server:
+  port: ${SPRING_SERVER_PORT:8001}
+
+debug: true
